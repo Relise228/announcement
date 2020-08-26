@@ -1,24 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import {Route, withRouter} from 'react-router-dom';
+import Header from './components/Header/Header';
+import AnnouncementsContainer from './components/Announcements/AnnouncementsContainer';
+import AddAnnouncement from './components/AddAnnouncement/AddAnnouncement';
+import AnnouncementPageContainer from './components/AnnouncementPage/AnnouncementPageContainer';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app-wrapper'>
+      <div className='app-wrapper-content'>
+        <Header />
+        <Route exact path='/' component={AnnouncementsContainer} />
+        <Route path='/add' render={() => <AddAnnouncement />} />
+        <Route path='/announcement/:id' component={AnnouncementPageContainer} />
+      </div>
     </div>
   );
 }

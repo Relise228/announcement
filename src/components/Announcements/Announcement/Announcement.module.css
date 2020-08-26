@@ -1,0 +1,32 @@
+.announcementContainer {
+  border: 1px solid black;
+  border-radius: 30px;
+  width: 80%;
+  padding: 30px;
+  margin-top: 3%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.announcement {
+  color: white;
+  text-decoration: none;
+}
+
+.imagesContainer {
+  width: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.editImg {
+  width: 20px;
+  cursor: pointer;
+}
+
+.trashImg {
+  width: 20px;
+  cursor: pointer;
+}
