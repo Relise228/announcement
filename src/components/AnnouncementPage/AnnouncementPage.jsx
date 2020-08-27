@@ -99,7 +99,7 @@ const AnnouncementPage = (props) => {
         />
       </div>
 
-      <div className={styles.similiar}>Similiar Announcements</div>
+      <div className={styles.similiar}>Similar Announcements</div>
     </div>
   ) : (
     ''
