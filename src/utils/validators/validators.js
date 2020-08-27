@@ -13,4 +13,4 @@ export const maxLengthCreator = (maxLength) => (value) => {
 };
 
 export const maxLength100 = maxLengthCreator(100);
-export const maxLength2000 = maxLengthCreator(2000);
+export const maxLength5000 = maxLengthCreator(5000);

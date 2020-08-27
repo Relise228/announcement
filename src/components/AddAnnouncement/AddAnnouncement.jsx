@@ -7,7 +7,7 @@ import {reset} from 'redux-form';
 import {
   requiredField,
   maxLength100,
-  maxLength2000,
+  maxLength5000,
 } from '../../utils/validators/validators';
 import {connect} from 'react-redux';
 import {addAnnouncement} from '../../redux/announcement-reducer';
@@ -32,7 +32,7 @@ const AddAnnouncementForm = (props) => {
           placeholder='Description'
           name='description'
           component={Textarea}
-          validate={[requiredField, maxLength2000]}
+          validate={[requiredField, maxLength5000]}
           className={styles.description}
         />
       </div>

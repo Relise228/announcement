@@ -4,7 +4,7 @@ import editImg from './../../assets/images/edit.svg';
 import {reduxForm, Field} from 'redux-form';
 import {Input, Textarea} from '../../common/FormsControls/FormsControls';
 import {
-  maxLength2000,
+  maxLength5000,
   requiredField,
   maxLength100,
 } from '../../utils/validators/validators';
@@ -34,7 +34,7 @@ const EditAnnouncementForm = (props) => {
           placeholder='Description'
           name='description'
           component={Textarea}
-          validate={[requiredField, maxLength2000]}
+          validate={[requiredField, maxLength5000]}
           className={styles.descriptionField}
         />
       </div>
