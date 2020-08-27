@@ -13,7 +13,6 @@ function App() {
         <Route exact path='/' component={AnnouncementsContainer} />
         <Route path='/add' render={() => <AddAnnouncement />} />
         <Route path='/announcement/:id' component={AnnouncementPageContainer} />
-        <Redirect to='/' />
       </div>
     </div>
   );
