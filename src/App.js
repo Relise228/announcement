@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {Route, withRouter} from 'react-router-dom';
+import {Route, withRouter, Redirect} from 'react-router-dom';
 import Header from './components/Header/Header';
 import AnnouncementsContainer from './components/Announcements/AnnouncementsContainer';
 import AddAnnouncement from './components/AddAnnouncement/AddAnnouncement';
@@ -13,6 +13,7 @@ function App() {
         <Route exact path='/' component={AnnouncementsContainer} />
         <Route path='/add' render={() => <AddAnnouncement />} />
         <Route path='/announcement/:id' component={AnnouncementPageContainer} />
+        <Redirect to='/' />
       </div>
     </div>
   );

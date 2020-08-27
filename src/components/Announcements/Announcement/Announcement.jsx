@@ -19,11 +19,14 @@ const Announcement = (props) => {
       </div>
       <div className={styles.imagesContainer}>
         <Link to={link}>
-          <img src={editImg} className={styles.editImg} />
+          <img
+            src='https://img.icons8.com/ios/50/000000/edit.png'
+            className={styles.editImg}
+          />
         </Link>
 
         <img
-          src={trashImg}
+          src='https://img.icons8.com/material-outlined/48/000000/trash.png'
           className={styles.trashImg}
           onClick={deleteAnnouncement}
         />

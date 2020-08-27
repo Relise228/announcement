@@ -92,7 +92,7 @@ const AnnouncementPage = (props) => {
       <div className={styles.announcementDate}>
         {new Date(props.selectedAnnouncement[0].dateAdded).toLocaleString()}
         <img
-          src={editImg}
+          src='https://img.icons8.com/ios/50/000000/edit.png'
           alt=''
           className={styles.editImg}
           onClick={() => setEditMode(true)}
