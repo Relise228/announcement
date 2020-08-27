@@ -12,5 +12,5 @@ export const maxLengthCreator = (maxLength) => (value) => {
   return undefined;
 };
 
-export const maxLength50 = maxLengthCreator(50);
+export const maxLength100 = maxLengthCreator(100);
 export const maxLength2000 = maxLengthCreator(2000);

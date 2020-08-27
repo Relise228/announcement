@@ -3,7 +3,11 @@ import styles from './Announcements.module.css';
 import Announcement from './Announcement/Announcement';
 
 const Announcements = (props) => {
-  const annoncementElements = props.announcements.map((data) => (
+  const items = props.searchValue
+    ? props.searchAnnouncenents
+    : props.announcements;
+
+  const annoncementElements = items.map((data) => (
     <Announcement
       title={data.title}
       key={data.id}
@@ -12,8 +16,21 @@ const Announcements = (props) => {
     />
   ));
 
+  const onChangeSearch = (e) => {
+    props.setSearchValue(e.currentTarget.value);
+  };
+
   return (
-    <div className={styles.annoncementsContainer}>{annoncementElements}</div>
+    <div className={styles.annoncementsContainer}>
+      <input
+        type='text'
+        placeholder='Search'
+        value={props.searchValue}
+        onChange={onChangeSearch}
+        className={styles.searchInput}
+      />
+      {annoncementElements}
+    </div>
   );
 };
 
