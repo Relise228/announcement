@@ -75,3 +75,7 @@ form > div {
 .updateButton:hover {
   background-color: #181818;
 }
+
+.similiar {
+  margin-top: 5%;
+}

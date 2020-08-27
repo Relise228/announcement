@@ -10,7 +10,10 @@ import {
 } from '../../utils/validators/validators';
 import {connect} from 'react-redux';
 
-import {updateAnnouncement} from './../../redux/announcement-reducer';
+import {
+  updateAnnouncement,
+  getSimiliar,
+} from './../../redux/announcement-reducer';
 
 const EditAnnouncementForm = (props) => {
   return (
@@ -73,6 +76,7 @@ const AnnouncementPage = (props) => {
 
   useEffect(() => {
     props.getAnnouncementById(props.match.params.id);
+    props.getSimiliar();
   }, [props.match.params.id]);
 
   if (editMode) return <ConnectedForm onSubmit={onSubmit} />;
@@ -95,11 +99,16 @@ const AnnouncementPage = (props) => {
         />
       </div>
 
-      <div>Similiar Announcements</div>
+      <div className={styles.similiar}>Similiar Announcements</div>
     </div>
   ) : (
     ''
   );
 };
 
-export default connect(null, {updateAnnouncement})(AnnouncementPage);
+const mapStateToProps = (state) => ({
+  similiar: state.announcementsPage.similiar,
+});
+export default connect(mapStateToProps, {updateAnnouncement, getSimiliar})(
+  AnnouncementPage
+);

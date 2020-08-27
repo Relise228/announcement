@@ -4,20 +4,22 @@ const DELETE_ANNOUNCEMENT = 'DELETE_ANNOUNCEMENT';
 
 const GET_ANNOUNCEMENT = 'GET_ANNOUNCEMENT';
 const SET_SEARCH_VALUE = 'SET_SEARCH_VALUE';
+const SET_SIMILIAR = 'SET_SIMILIAR';
 
 let initialState = {
   announcements: [
     {
       id: 1,
-      title: 'Jacob Blake: Two shot dead in third night of Wisconsin unrest',
+      title:
+        'Jacob Blake: Two shot dead in third night of Wisconsin unrest same',
       description:
-        'Jacob Blake, 29, was shot and injured by police as he leaned into his car on Sunday, with his children screaming.',
+        'Jacob Blake, 29, was shot and injured by police as he leaned into his car on Sunday, with his children screaming same',
       dateAdded: new Date(),
     },
     {
       id: 2,
       title:
-        'Christchurch shooting: Grief and defiance as victims confront gunman',
+        'Christchurch shooting: Grief and defiance as victims confront gunman same',
       description: '',
       dateAdded: new Date(),
     },
@@ -59,8 +61,8 @@ let initialState = {
     },
   ],
   searchAnnouncenents: [],
-
   selectedAnnouncement: [],
+  similiar: [],
   searchValue: '',
 };
 
@@ -124,6 +126,26 @@ const announcementReducer = (state = initialState, action) => {
         }),
       };
     }
+
+    case SET_SIMILIAR: {
+      const titleWords = state.selectedAnnouncement[0].title
+        .toLowerCase()
+        .split(' ');
+      const descriptionWords = state.selectedAnnouncement[0].description
+        .toLowerCase()
+        .split(' ');
+
+      return {
+        ...state,
+        similiar: state.announcements.filter((a) => {
+          titleWords.map((element) => {
+            console.log(a.title.toLowerCase());
+            if (a.title.toLowerCase().includes(element)) return a;
+          });
+        }),
+      };
+    }
+
     default:
       return state;
   }
@@ -155,5 +177,9 @@ export const setSearchValue = (searchValue) => ({
 export const updateAnnouncement = (id, description, title) => ({
   type: UPDATE_ANNOUNCEMENT,
   payload: {id, description, title},
+});
+
+export const getSimiliar = () => ({
+  type: SET_SIMILIAR,
 });
 export default announcementReducer;
